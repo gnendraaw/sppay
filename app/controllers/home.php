@@ -3,6 +3,8 @@
 class Home extends Controller {
     public function index()
     {
-        echo 'halo';
+        $this->view('templates/header');
+        $this->view('home/index');
+        $this->view('templates/footer');
     }
 }
