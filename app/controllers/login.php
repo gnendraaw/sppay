@@ -3,6 +3,8 @@
 class Login extends Controller {
     public function index()
     {
+        Middleware::onlyNotLogedIn();
+
         $this->view('templates/auth/header');
         $this->view('login/index');
         $this->view('templates/auth/footer');
@@ -10,6 +12,8 @@ class Login extends Controller {
 
     public function sign()
     {
+        Middleware::onlyNotLogedIn();
+
         $data = [
             'username' => $_POST['username'],
             'password' => $_POST['password'],

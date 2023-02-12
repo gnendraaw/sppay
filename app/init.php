@@ -6,3 +6,4 @@ require_once 'core/Database.php';
 require_once 'core/Config.php';
 require_once 'core/Flasher.php';
 require_once 'core/Direct.php';
+require_once 'core/Middleware.php';

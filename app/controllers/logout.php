@@ -6,10 +6,9 @@ class Logout extends Controller {
         if (isset($_SESSION['user']))
         {
             unset($_SESSION['user']);
-            header('location: ' . BASE_URL . '/login');
-            exit;
+
+            Direct::directTo('/login');
         }
-        header('location: ' . BASE_URL);
-        exit;
+        Direct::directTo();
     }
 }
