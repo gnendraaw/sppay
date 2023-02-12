@@ -55,6 +55,19 @@
 
     <!-- Page level custom scripts -->
     <script src="<?=BASE_URL?>/js/demo/datatables-demo.js"></script>
+
+    <!-- custom jquery -->
+    <script>
+        $(document).ready(function() {
+            $('.spp-row').on('click', '#adminHapusSppBtn', function() {
+                const id = $(this).parents('.spp-row').data('idspp')
+                console.log('id', id)
+
+                modal = $('#adminDeleteSppModal')
+                modal.find('input[type=hidden]').val(id)
+            })
+        })
+    </script>
 </body>
 
 </html>

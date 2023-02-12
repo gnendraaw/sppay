@@ -28,4 +28,15 @@ class Spp_model {
 
         return $this->db->rowCount();
     }
+
+    public function removeSpp($data)
+    {
+        $query = "DELETE FROM {$this->table} WHERE id_spp=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $data['id_spp']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

@@ -30,4 +30,19 @@ class SPP extends Controller {
         Flasher::setFlash('Gagal menambahkan data!', 'danger');
         Direct::directTo('/spp');
     }
+
+    public function delete()
+    {
+        $data = [
+            'id_spp' => $_POST['id'],
+        ];
+
+        if ($this->model('spp_model')->removeSpp($data) > 0)
+        {
+            Flasher::setFlash('Data SPP berhasil dihapus!', 'success');
+            Direct::directTo('/spp');
+        }
+        Flasher::setFlash('Gagal menghapus data!', 'danger');
+        Direct::directTo('/spp');
+    }
 }
