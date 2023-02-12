@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-6 col-md-8">
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <?php Flasher::flash(); ?>
+
+                <div class="card o-hidden border-0 shadow-lg my-3">
                     <div class="card-body p-0">
                         <div class="col">
                             <div class="p-5">

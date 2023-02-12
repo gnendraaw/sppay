@@ -15,20 +15,40 @@ class Login extends Controller {
             'password' => $_POST['password'],
         ];
 
-        $user = $this->model('siswa_model')->getSiswaByUsernameAndPassword($data);
+        $siswa = $this->model('siswa_model')->getSiswaByUsernameAndPassword($data);
+        $petugas = $this->model('petugas_model')->getPetugasByUsernameAndPassword($data);
 
-        if ($user)
+        // when no data found on siswa and petugas table, direct user back to login page
+        if (!$siswa && !$petugas)
+        {
+            Flasher::setFlash('username atau password salah!', 'danger');
+
+            header('location: ' . BASE_URL . '/login');
+            exit;
+        }
+        if ($siswa)
         {
             $_SESSION['user'] = [
-                'id_user' => $user['id_siswa'],
-                'username' => $user['nis'],
-                'nama' => $user['nama_siswa'],
+                'id_user' => $siswa['id_siswa'],
+                'username' => $siswa['nis'],
+                'nama' => $siswa['nama_siswa'],
+                'level' => 3,
             ];
 
             header('location: ' . BASE_URL);
             exit;
         }
-        header('location: ' . BASE_URL . '/login');
-        exit;
+        if ($petugas)
+        {
+            $_SESSION['user'] = [
+                'id_user' => $petugas['id_petugas'],
+                'username' => $petugas['username'],
+                'nama' => $petugas['nama_petugas'],
+                'level' => $petugas['id_level'],
+            ];
+
+            header('location: ' . BASE_URL);
+            exit;
+        }
     }
 }
