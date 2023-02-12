@@ -4,11 +4,13 @@ class Middleware {
     public static function directTo($level, $path)
     {
         if ($_SESSION['user']['level']==$level) Direct::directTo($path);
+        exit;
     }
 
     public static function onlyLogedIn()
     {
         if (empty($_SESSION['user'])) Direct::directTo('/login');
+        exit;
     }
 
     public static function onlyNotLogedIn()

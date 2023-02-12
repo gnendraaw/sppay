@@ -49,6 +49,12 @@
     <!-- Custom scripts for all pages-->
     <script src="<?=BASE_URL?>/js/sb-admin-2.min.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="<?=BASE_URL?>/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?=BASE_URL?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="<?=BASE_URL?>/js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

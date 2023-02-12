@@ -49,7 +49,8 @@ class Login extends Controller {
                 'level' => $petugas['id_level'],
             ];
 
-            Direct::directTo();
+            Middleware::directTo(1, '/admin');
+            Middleware::directTo(2, '/petugas');
         }
     }
 }
