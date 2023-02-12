@@ -23,8 +23,7 @@ class Login extends Controller {
         {
             Flasher::setFlash('username atau password salah!', 'danger');
 
-            header('location: ' . BASE_URL . '/login');
-            exit;
+            Direct::directTo('/login');
         }
         if ($siswa)
         {
@@ -35,8 +34,7 @@ class Login extends Controller {
                 'level' => 3,
             ];
 
-            header('location: ' . BASE_URL);
-            exit;
+            Direct::directTo();
         }
         if ($petugas)
         {
@@ -47,8 +45,7 @@ class Login extends Controller {
                 'level' => $petugas['id_level'],
             ];
 
-            header('location: ' . BASE_URL);
-            exit;
+            Direct::directTo();
         }
     }
 }
