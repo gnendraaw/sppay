@@ -39,4 +39,26 @@ class Spp_model {
 
         return $this->db->rowCount();
     }
+
+    public function getSppById($id)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id_spp=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
+    public function updateSppById($data)
+    {
+        $query = "UPDATE {$this->table} SET tahun=:tahun, nominal=:nominal WHERE id_spp=:id";
+        $this->db->query($query);
+        $this->db->bind('tahun', $data['tahun']);
+        $this->db->bind('nominal', $data['nominal']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

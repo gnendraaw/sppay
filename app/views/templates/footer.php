@@ -66,6 +66,62 @@
                 modal = $('#adminDeleteSppModal')
                 modal.find('input[type=hidden]').val(id)
             })
+
+            $('.spp-row').on('click', '#adminEditSppBtn', function() {
+                const id = $(this).parents('.spp-row').data('idspp')
+                console.log('id', id)
+
+                getSppData(id)
+            })
+
+            $('#adminTambahSppBtn').on('click', function() {
+                data = {
+                    title: 'Tambah data SPP',
+                    id_spp: '',
+                    tahun: '',
+                    nominal: '',
+                    btn: 'Tambah',
+                    action: '/sppay/public/spp/store',
+                }
+
+                setSppModal(data)
+            })
+
+            function getSppData(id)
+            {
+                $.ajax({
+                    url: '/sppay/public/spp/getSppData',
+                    data: {
+                        id: id,
+                    },
+                    dataType: 'json',
+                    method: 'post',
+                    success: function(res) {
+                        data = {
+                            title: 'Ubah data SPP',
+                            id_spp: res['id_spp'],
+                            tahun: res['tahun'],
+                            nominal: res['nominal'],
+                            btn: 'Ubah',
+                            action: '/sppay/public/spp/update',
+                        }
+                        setSppModal(data)
+                    },
+                })
+            }
+
+            function setSppModal(data)
+            {
+                modal = $('#adminSppModal')
+
+                modal.find('#adminSppModalLabel').html(data['title'])
+                modal.find('form').attr('action', data['action'])
+                modal.find('input[type=hidden]').val(data['id_spp'])
+                modal.find('#adminSppTahunInput').val(data['tahun'])
+                modal.find('#adminSppNominalInput').val(data['nominal'])
+
+                modal.find('button[type=submit]').html(data['btn'])
+            }
         })
     </script>
 </body>

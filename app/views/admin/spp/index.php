@@ -4,7 +4,7 @@
     <div class="card shadow border-0 mb-4">
         <div class="card-header">
             <h6 class="font-weight-bold text-primary m-0">Daftar SPP</h6>
-            <button class="btn btn-primary my-2" data-toggle="modal" data-target="#adminSppModal">Tambah Data SPP</button>
+            <button class="btn btn-primary my-2" data-toggle="modal" data-target="#adminSppModal" id="adminTambahSppBtn">Tambah Data SPP</button>
         </div>
         <div class="card-body py-3">
             <table class="table table-bordered" id="dataTable">
@@ -27,7 +27,7 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Aksi:</div>
-                                            <button class="dropdown-item">Edit</button>
+                                            <button class="dropdown-item" id="adminEditSppBtn" data-toggle="modal" data-target="#adminSppModal">Edit</button>
                                             <!-- <div class="dropdown-divider"></div> -->
                                             <button class="dropdown-item text-danger" data-toggle="modal" data-target="#adminDeleteSppModal" id="adminHapusSppBtn">Hapus</button>
                                         </div>
@@ -57,6 +57,7 @@
                 <div class="modal-body">
                     <form action="<?=BASE_URL?>/spp/store" method="post">
                         <div class="form-group">
+                            <input type="hidden" name="id" val="">
                             <label for="adminSppTahunInput">Tahun</label>
                             <input type="text" class="form-control" name="tahun" id="adminSppTahunInput" maxlength="4" required>
                         </div>

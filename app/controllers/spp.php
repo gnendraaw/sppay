@@ -45,4 +45,26 @@ class SPP extends Controller {
         Flasher::setFlash('Gagal menghapus data!', 'danger');
         Direct::directTo('/spp');
     }
+
+    public function update()
+    {
+        $data = [
+            'id' => $_POST['id'],
+            'tahun' => $_POST['tahun'],
+            'nominal' => $_POST['nominal'],
+        ];
+
+        if ($this->model('spp_model')->updateSppById($data) > 0)
+        {
+            Flasher::setFlash('Data SPP berhasil dirubah!', 'success');
+            Direct::directTo('/spp');
+        }
+        Flasher::setFlash('Gagal merubah data SPP', 'danger');
+        Direct::directTo('/spp');
+    }
+
+    public function getSppData()
+    {
+        echo json_encode($this->model('spp_model')->getSppById($_POST['id']));
+    }
 }
