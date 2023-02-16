@@ -8,6 +8,8 @@ class SPP extends Controller {
         $data = [
             'title' => 'SPP',
             'spp' => $spp,
+            'heading' => 'manajemen spp',
+            'options' => 'daftar spp',
         ];
 
         $this->view('templates/header', $data);

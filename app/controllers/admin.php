@@ -5,6 +5,8 @@ class Admin extends Controller {
     {
         $data = [
             'title' => 'Dashboard',
+            'heading' => 'dashboard',
+            'options' => 'dashboard',
         ];
 
         $this->view('templates/header', $data);
