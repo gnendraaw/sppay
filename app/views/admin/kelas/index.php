@@ -27,8 +27,8 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Aksi:</div>
-                                            <button class="dropdown-item" id="adminEditKelasBtn" data-toggle="modal" data-target="#adminSppModal">Edit</button>
-                                            <button class="dropdown-item text-danger" data-toggle="modal" data-target="#adminDeleteKelasModal" id="adminHapusKelasbtn">Hapus</button>
+                                            <button class="dropdown-item" id="adminEditKelasBtn" data-toggle="modal" data-target="#adminKelasModal">Edit</button>
+                                            <button class="dropdown-item text-danger" data-toggle="modal" data-target="#adminDeleteKelasModal" id="adminHapusKelasBtn">Hapus</button>
                                         </div>
                                     </div>
                             </td>

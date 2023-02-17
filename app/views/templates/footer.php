@@ -59,6 +59,7 @@
     <!-- custom jquery -->
     <script>
         $(document).ready(function() {
+            // admin spp manajemen
             $('.spp-row').on('click', '#adminHapusSppBtn', function() {
                 const id = $(this).parents('.spp-row').data('idspp')
                 console.log('id', id)
@@ -122,6 +123,65 @@
 
                 modal.find('button[type=submit]').html(data['btn'])
             }
+            // end of admin spp manajemen
+
+            // admin kelas manajemen
+            $('.kelas-row').on('click', '#adminEditKelasBtn', function () {
+                const id = $(this).parents('.kelas-row').data('idkelas')
+                console.log('id', id)
+
+                getKelasData(id)
+            })
+
+            $('#adminTambahKelasBtn').on('click', function() {
+                data = {
+                    title: 'Tambah Data Kelas',
+                    id_kelas: '',
+                    nama: '',
+                    komp: '',
+                    btn: 'Tambah',
+                    action: '/sppay/public/kelas/store',
+                }
+
+                setKelasModal(data)
+            })
+
+            function getKelasData(id)
+            {
+                $.ajax({
+                    url: '/sppay/public/kelas/getKelasData',
+                    data: {
+                        id: id,
+                    },
+                    dataType: 'json',
+                    method: 'post',
+                    success: function(res) {
+                        data = {
+                            title: 'Ubah Data Kelas',
+                            id_kelas: res['id_kelas'],
+                            nama: res['nama_kelas'],
+                            komp: res['kompetensi_keahlian'],
+                            btn: 'Ubah',
+                            action: '/sppay/public/kelas/update',
+                        }
+                        setKelasModal(data)
+                    },
+                })
+            }
+
+            function setKelasModal(data)
+            {
+                modal = $('#adminKelasModal')
+
+                modal.find('#adminKelasModalLabel').html(data['title'])
+                modal.find('form').attr('action', data['action'])
+                modal.find('input[type=hidden]').val(data['id_kelas'])
+                modal.find('#adminKelasNamaInput').val(data['nama'])
+                modal.find('#adminKelasKompInput').val(data['komp'])
+
+                modal.find('button[type=submit]').html(data['btn'])
+            }
+            // end of admin kelas manajemen
         })
     </script>
 </body>

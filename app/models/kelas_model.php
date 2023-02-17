@@ -39,4 +39,26 @@ class Kelas_model {
 
         return $this->db->rowCount();
     }
+
+    public function getKelasById($id) 
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id_kelas=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
+    public function updateKelasById($data)
+    {
+        $query = "UPDATE {$this->table} SET nama_kelas=:nama, kompetensi_keahlian=:komp WHERE id_kelas=:id";
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('komp', $data['komp']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

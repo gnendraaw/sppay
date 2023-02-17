@@ -32,4 +32,26 @@ class Kelas extends Controller {
         Flasher::setFlash('Gagal menambahkan data kelas!', 'danger');
         Direct::directTo('/kelas');
     }
+
+    public function update()
+    {
+        $data = [
+            'id' => $_POST['id'],
+            'nama' => $_POST['nama'],
+            'komp' => $_POST['komp'],
+        ];
+
+        if ($this->model('kelas_model')->updateKelasById($data) > 0)
+        {
+            Flasher::setFlash('Data kelas berhasil diubah!', 'success');
+            Direct::directTo('/kelas');
+        }
+        Flasher::setFlash('Gagal merubah data kelas!', 'danger');
+        Direct::directTo('/kelas');
+    }
+
+    public function getKelasData()
+    {
+        echo json_encode($this->model('kelas_model')->getKelasById($_POST['id']));
+    }
 }
