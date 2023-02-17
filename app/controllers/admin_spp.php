@@ -28,10 +28,10 @@ class Admin_spp extends Controller {
         if ($this->model('spp_model')->addSpp($data) > 0)
         {
             Flasher::setFlash('Data SPP berhasil ditambahkan!', 'success');
-            Direct::directTo('/spp');
+            Direct::directTo('/admin-spp');
         }
         Flasher::setFlash('Gagal menambahkan data!', 'danger');
-        Direct::directTo('/spp');
+        Direct::directTo('/admin-spp');
     }
 
     public function delete()
@@ -43,10 +43,10 @@ class Admin_spp extends Controller {
         if ($this->model('spp_model')->removeSpp($data) > 0)
         {
             Flasher::setFlash('Data SPP berhasil dihapus!', 'success');
-            Direct::directTo('/spp');
+            Direct::directTo('/admin-spp');
         }
         Flasher::setFlash('Gagal menghapus data!', 'danger');
-        Direct::directTo('/spp');
+        Direct::directTo('/admin-spp');
     }
 
     public function update()
@@ -60,10 +60,10 @@ class Admin_spp extends Controller {
         if ($this->model('spp_model')->updateSppById($data) > 0)
         {
             Flasher::setFlash('Data SPP berhasil dirubah!', 'success');
-            Direct::directTo('/spp');
+            Direct::directTo('/admin-spp');
         }
         Flasher::setFlash('Gagal merubah data SPP', 'danger');
-        Direct::directTo('/spp');
+        Direct::directTo('/admin-spp');
     }
 
     public function getSppData()

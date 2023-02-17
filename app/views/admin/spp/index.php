@@ -55,7 +55,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?=BASE_URL?>/spp/store" method="post">
+                    <form action="<?=BASE_URL?>/admin-spp/store" method="post">
                         <div class="form-group">
                             <input type="hidden" name="id" val="">
                             <label for="adminSppTahunInput">Tahun</label>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="modal-body">
                     Yakin untuk hapus data SPP?
-                    <form action="<?=BASE_URL?>/spp/delete" method="post">
+                    <form action="<?=BASE_URL?>/admin-spp/delete" method="post">
                         <input type="hidden" name="id" value="">
                 </div>
                 <div class="modal-footer">
