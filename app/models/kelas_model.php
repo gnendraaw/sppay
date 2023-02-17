@@ -29,7 +29,7 @@ class Kelas_model {
         return $this->db->rowCount();
     }
 
-    public function deleteKelas($id)
+    public function deleteKelasById($id)
     {
         $query = "DELETE FROM {$this->table} WHERE id_kelas=:id";
         $this->db->query($query);

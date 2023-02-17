@@ -50,6 +50,17 @@ class Kelas extends Controller {
         Direct::directTo('/kelas');
     }
 
+    public function delete()
+    {
+        if ($this->model('kelas_model')->deleteKelasById($_POST['id']) > 0)
+        {
+            Flasher::setFlash('Data kelas berhasil dihapus!', 'success');
+            Direct::directTo('/kelas');
+        }
+        Flasher::setFlash('Gagal menghapus data kelas', 'danger');
+        Direct::directTo('/kelas');
+    }
+
     public function getKelasData()
     {
         echo json_encode($this->model('kelas_model')->getKelasById($_POST['id']));

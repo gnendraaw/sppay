@@ -169,6 +169,14 @@
                 })
             }
 
+            $('.kelas-row').on('click', '#adminHapusKelasBtn', function() {
+                const id = $(this).parents('.kelas-row').data('idkelas')
+                console.log('id', id)
+
+                $modal = $('#adminDeleteKelasModal')
+                $modal.find('input[type=hidden]').val(id)
+            })
+
             function setKelasModal(data)
             {
                 modal = $('#adminKelasModal')
