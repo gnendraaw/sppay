@@ -12,7 +12,6 @@ class App {
         // controller
         if (isset($url[0]))
         {
-            $url[0] = str_replace('-', '_', $url[0]);
 
             if (file_exists('../app/controllers/' . $url[0] . '.php'))
             {
@@ -51,7 +50,15 @@ class App {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             $url = explode('/', $url);
-            return $url;
+
+            return $this->filterController($url);
         }
+    }
+
+    public function filterController($url)
+    {
+        $url[0] = str_replace('_', '', $url[0]);
+        $url[0] = str_replace('-', '_', $url[0]);
+        return $url;
     }
 }
