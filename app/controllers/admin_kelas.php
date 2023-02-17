@@ -1,6 +1,6 @@
 <?php
 
-class Kelas extends Controller {
+class Admin_kelas extends Controller {
     public function index()
     {
         $kelas = $this->model('kelas_model')->getAllKelas();

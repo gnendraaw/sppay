@@ -1,6 +1,7 @@
+
 <?php
 
-class SPP extends Controller {
+class Admin_spp extends Controller {
     public function index()
     {
         $spp = $this->model('spp_model')->getAllSpp();

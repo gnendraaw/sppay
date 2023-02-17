@@ -70,7 +70,7 @@
                 <div id="manajemenSppCollapse" class="collapse <?=$data['options']=='daftar spp' ? 'show' : ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">SPP: </h6>
-                        <a class="collapse-item <?=$data['options']=='daftar spp' ? 'active' : ''?>" href="<?=BASE_URL?>/spp">Daftar SPP</a>
+                        <a class="collapse-item <?=$data['options']=='daftar spp' ? 'active' : ''?>" href="<?=BASE_URL?>/admin-spp">Daftar SPP</a>
                     </div>
                 </div>
             </li>
@@ -93,7 +93,7 @@
                 <div id="manajemenKelasCollapse" class="collapse <?=$data['options']=='daftar kelas' ? 'show' : ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Kelas: </h6>
-                        <a class="collapse-item <?=$data['options']=='daftar kelas' ? 'active' : ''?>" href="<?=BASE_URL?>/kelas">Daftar Kelas</a>
+                        <a class="collapse-item <?=$data['options']=='daftar kelas' ? 'active' : ''?>" href="<?=BASE_URL?>/admin-kelas">Daftar Kelas</a>
                     </div>
                 </div>
             </li>

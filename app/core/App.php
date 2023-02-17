@@ -12,6 +12,8 @@ class App {
         // controller
         if (isset($url[0]))
         {
+            $url[0] = str_replace('-', '_', $url[0]);
+
             if (file_exists('../app/controllers/' . $url[0] . '.php'))
             {
                 $this->controller = $url[0];
