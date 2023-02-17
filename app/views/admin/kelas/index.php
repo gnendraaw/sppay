@@ -54,7 +54,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?=BASE_URL?>/kelas/store" method="post">
+                    <form action="<?=BASE_URL?>/admin-kelas/store" method="post">
                         <div class="form-group">
                             <input type="hidden" name="id" val="">
                             <label for="adminKelasNamaInput">Nama Kelas</label>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="modal-body">
                     Yakin untuk hapus data kelas?
-                    <form action="<?=BASE_URL?>/kelas/delete" method="post">
+                    <form action="<?=BASE_URL?>/admin-kelas/delete" method="post">
                         <input type="hidden" name="id" value="">
                 </div>
                 <div class="modal-footer">

@@ -27,10 +27,10 @@ class Admin_kelas extends Controller {
         if ($this->model('kelas_model')->addKelas($data))
         {
             Flasher::setFlash('Data kelas berhasil ditambahkan!', 'success');
-            Direct::directTo('/kelas');
+            Direct::directTo('/admin-kelas');
         }
         Flasher::setFlash('Gagal menambahkan data kelas!', 'danger');
-        Direct::directTo('/kelas');
+        Direct::directTo('/admin-kelas');
     }
 
     public function update()
@@ -44,10 +44,10 @@ class Admin_kelas extends Controller {
         if ($this->model('kelas_model')->updateKelasById($data) > 0)
         {
             Flasher::setFlash('Data kelas berhasil diubah!', 'success');
-            Direct::directTo('/kelas');
+            Direct::directTo('/admin-kelas');
         }
         Flasher::setFlash('Gagal merubah data kelas!', 'danger');
-        Direct::directTo('/kelas');
+        Direct::directTo('/admin-kelas');
     }
 
     public function delete()
@@ -55,10 +55,10 @@ class Admin_kelas extends Controller {
         if ($this->model('kelas_model')->deleteKelasById($_POST['id']) > 0)
         {
             Flasher::setFlash('Data kelas berhasil dihapus!', 'success');
-            Direct::directTo('/kelas');
+            Direct::directTo('/admin-kelas');
         }
         Flasher::setFlash('Gagal menghapus data kelas', 'danger');
-        Direct::directTo('/kelas');
+        Direct::directTo('/admin-kelas');
     }
 
     public function getKelasData()

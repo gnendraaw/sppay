@@ -82,7 +82,7 @@
                     tahun: '',
                     nominal: '',
                     btn: 'Tambah',
-                    action: '/sppay/public/spp/store',
+                    action: '/sppay/public/admin-spp/store',
                 }
 
                 setSppModal(data)
@@ -91,7 +91,7 @@
             function getSppData(id)
             {
                 $.ajax({
-                    url: '/sppay/public/spp/getSppData',
+                    url: '/sppay/public/admin-spp/getSppData',
                     data: {
                         id: id,
                     },
@@ -104,7 +104,7 @@
                             tahun: res['tahun'],
                             nominal: res['nominal'],
                             btn: 'Ubah',
-                            action: '/sppay/public/spp/update',
+                            action: '/sppay/public/admin-spp/update',
                         }
                         setSppModal(data)
                     },
@@ -140,7 +140,7 @@
                     nama: '',
                     komp: '',
                     btn: 'Tambah',
-                    action: '/sppay/public/kelas/store',
+                    action: '/sppay/public/admin-kelas/store',
                 }
 
                 setKelasModal(data)
@@ -149,7 +149,7 @@
             function getKelasData(id)
             {
                 $.ajax({
-                    url: '/sppay/public/kelas/getKelasData',
+                    url: '/sppay/public/admin-kelas/getKelasData',
                     data: {
                         id: id,
                     },
@@ -162,7 +162,7 @@
                             nama: res['nama_kelas'],
                             komp: res['kompetensi_keahlian'],
                             btn: 'Ubah',
-                            action: '/sppay/public/kelas/update',
+                            action: '/sppay/public/admin-kelas/update',
                         }
                         setKelasModal(data)
                     },
