@@ -93,7 +93,7 @@
                 <div id="manajemenKelasCollapse" class="collapse <?=$data['options']=='daftar kelas' ? 'show' : ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Kelas: </h6>
-                        <a class="collapse-item <?=$data['options']=='daftar kelas' ? 'active' : ''?>" href="<?=BASE_URL?>/spp">Daftar Kelas</a>
+                        <a class="collapse-item <?=$data['options']=='daftar kelas' ? 'active' : ''?>" href="<?=BASE_URL?>/kelas">Daftar Kelas</a>
                     </div>
                 </div>
             </li>
