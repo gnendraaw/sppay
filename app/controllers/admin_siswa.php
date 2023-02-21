@@ -35,6 +35,22 @@ class Admin_siswa extends Controller {
         $this->view('templates/footer');
     }
 
+    public function detail($id)
+    {
+        $siswa = $this->model('siswa_model')->getSiswaById($id);
+
+        $data = [
+            'title' => 'Manajemen Siswa',
+            'heading' => 'manajemen siswa',
+            'options' => 'daftar siswa',
+            'siswa' => $siswa,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/siswa/detail', $data);
+        $this->view('templates/footer');
+    }
+
     public function store()
     {
         $data = [
@@ -54,6 +70,28 @@ class Admin_siswa extends Controller {
             Direct::directTo('/admin-siswa');
         }
         Flasher::setFlash('Gagal menambahkan data siswa', 'danger');
+        Direct::directTo('/admin-siswa');
+    }
+
+    public function update()
+    {
+        $data = [
+            'id' => $_POST['id'],
+            'nisn' => $_POST['nisn'],
+            'nis' => $_POST['nis'],
+            'nama' => $_POST['nama'],
+            'telp' => $_POST['telp'],
+            'alamat' => $_POST['alamat'],
+            'id_kelas' => $_POST['kelas'],
+            'id_spp' => $_POST['spp'],
+        ];
+
+        if ($this->model('siswa_model')->updateSiswaById($data) > 0)
+        {
+            Flasher::setFlash('Data siswa berhasil dirubah!', 'success');
+            Direct::directTo('/admin-siswa');
+        }
+        Flasher::setFlash('Gagal merubah data siswa!', 'danger');
         Direct::directTo('/admin-siswa');
     }
 }

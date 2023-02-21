@@ -44,4 +44,31 @@ class siswa_model {
 
         return $this->db->rowCount();
     }
+
+    public function getSiswaById($id)
+    {
+        $query = "SELECT s.*, k.*, sp.* FROM {$this->table} AS s LEFT JOIN kelas AS k ON s.id_kelas=k.id_kelas LEFT JOIN spp AS sp ON s.id_spp = sp.id_spp WHERE s.id_siswa=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
+    public function updateSiswaById($data)
+    {
+        $query = "UPDATE {$this->table} SET nisn=:nisn, nis=:nis, nama_siswa=:nama, no_telp=:telp, alamat=:alamat, id_spp=:id_spp, id_kelas=:id_kelas WHERE id_siswa=:id_siswa";
+        $this->db->query($query);
+        $this->db->bind('nisn', $data['nisn']);
+        $this->db->bind('nis', $data['nis']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('telp', $data['telp']);
+        $this->db->bind('alamat', $data['alamat']);
+        $this->db->bind('id_spp', $data['spp']);
+        $this->db->bind('id_kelas', $data['kelas']);
+        $this->db->bind('id_siswa', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

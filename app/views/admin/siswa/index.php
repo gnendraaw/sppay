@@ -30,7 +30,7 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Aksi:</div>
-                                            <button class="dropdown-item" id="adminEditSiswaBtn" data-toggle="modal" data-target="#adminSiswaModal">Edit</button>
+                                            <a href="<?=BASE_URL?>/admin-siswa/detail/<?=$siswa['id_siswa']?>" class="dropdown-item" id="adminDetailSiswaBtn">Detail</a>
                                             <button class="dropdown-item text-danger" data-toggle="modal" data-target="#adminDeleteSiswaModal" id="adminDeleteSiswaBtn">Hapus</button>
                                         </div>
                                     </div>
