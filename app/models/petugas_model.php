@@ -40,4 +40,27 @@ class Petugas_model {
 
         return $this->db->rowCount();
     }
+
+    public function getPetugasById($id)
+    {
+        $query = "SELECT p.*, l.* FROM {$this->table} AS p LEFT JOIN level AS l ON p.id_level=l.id_level WHERE p.id_petugas=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
+    public function updatePetugas($data)
+    {
+        $query = "UPDATE {$this->table} SET username=:username, nama_petugas=:nama, id_level=:id_level WHERE id_petugas=:id_petugas";
+        $this->db->query($query);
+        $this->db->bind('username', $data['username']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('id_level', $data['id_level']);
+        $this->db->bind('id_petugas', $data['id_petugas']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

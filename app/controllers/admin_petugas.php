@@ -49,4 +49,39 @@ class Admin_petugas extends Controller {
         Flasher::setFlash('Gagal menambahkan data petugas', 'danger');
         Direct::directTo('/admin-petugas');
     }
+
+    public function detail($id)
+    {
+        $petugas = $this->model('petugas_model')->getPetugasById($id);
+        $level = $this->model('level_model')->getAllLevel();
+        $data = [
+            'title' => 'Manajemen Petugas',
+            'heading' => 'manajemen petugas',
+            'options' => 'daftar petugas',
+            'level' => $level,
+            'petugas' => $petugas,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/petugas/detail', $data);
+        $this->view('templates/footer');
+    }
+
+    public function update()
+    {
+        $data = [
+            'username' => $_POST['username'],
+            'nama' => $_POST['nama'],
+            'id_petugas' => $_POST['id'],
+            'id_level' => $_POST['level'],
+        ];
+
+        if ($this->model('petugas_model')->updatePetugas($data) > 0)
+        {
+            Flasher::setFlash('Data petugas berhasil dirubah!', 'success');
+            Direct::directTo('/admin-petugas');
+        }
+        Flasher::setFlash('Gagal merubah data petugas', 'danger');
+        Direct::directTo('/admin-petugas');
+    }
 }
