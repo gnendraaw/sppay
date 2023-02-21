@@ -26,4 +26,18 @@ class Petugas_model {
 
         return $this->db->resultSet();
     }
+
+    public function addPetugas($data)
+    {
+        $query = "INSERT INTO {$this->table} VALUES(NULL, :username, :password, :nama, :level)";
+        $this->db->query($query);
+        $this->db->bind('username', $data['username']);
+        $this->db->bind('password', $data['password']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('level', $data['level']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
