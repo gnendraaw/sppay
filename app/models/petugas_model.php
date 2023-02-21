@@ -18,4 +18,12 @@ class Petugas_model {
 
         return $this->db->single();
     }
+
+    public function getAllPetugas()
+    {
+        $query = "SELECT p.*, l.* FROM {$this->table} AS p LEFT JOIN level AS l ON p.id_level=l.id_level";
+        $this->db->query($query);
+
+        return $this->db->resultSet();
+    }
 }
