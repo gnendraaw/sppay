@@ -1,26 +1,12 @@
 <div class="container-fluid">
-    <div class="card mb-3">
-        <div class="card-body py-3">
-            <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post">
-            <div class="form-row">
-                <div class="form-group col-lg-10 m-0">
-                    <input type="text" name="query" id="adminQueryInput" placeholder="cari siswa dengan NIS di sini . . ." class="form-control" required>
-                </div>
-                <div class="form-group col-lg-2 m-0">
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fas fa-search fa-sm"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-        </div>
-    </div>
+    <?php Flasher::flash(); ?>
+
     <div class="row mb-4">
         <div class="col-lg-4">
             <div class="card  mb-4">
                 <div class="card-body py-3">
                     <div class="col-sm-8">
-                        <img class="rounded-circle" src="img/undraw_profile_1.svg"                        alt="...">
+                        <img class="rounded-circle" src="<?=BASE_URL?>/img/undraw_profile_1.svg"                        alt="...">
                     </div>
                     <div class="col mb-3">
                         <h6 class="text-muted mb-1">NISN</h6>
@@ -45,21 +31,37 @@
         <div class="col-lg-8">
             <div class="card mb-3">
                 <div class="card-body py-3">
+                    <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post">
                     <div class="row">
-                        <?php for($i = 0; $i < 12; $i++): ?>
-                        <div class="col-sm-12 col-md-6 col-xl-4 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    Januari
-                                    <h4 class="text-grey-800 font-weight-bold">Rp 200.000</h4>
-                                </div>
+                        <?php foreach($data['bulan'] as $bulan): ?>
+                            <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
+                            <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
+                            <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
+
+                            <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
+                                <input type="hidden" name="bulan[<?=$bulan?>]" value="false" data-bulan="<?=$bulan?>">
+
+                                <?php if(in_array($bulan, $data['bulan_terbayar'])): ?>
+                                    <card class="card p-3 bg-success text-white">
+                                        <h6 class="text-uppercase"><?=$bulan?></h6>
+                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
+                                    </card>
+
+                                <?php else: ?>
+                                    <button type="button" class="card p-3 btn-block">
+                                        <h6 class="text-uppercase"><?=$bulan?></h6>
+                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
+                                    </button>
+
+                                <?php endif ?>
+
                             </div>
-                        </div>
-                        <?php endfor ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-success btn-block">Bayar</button>
+            <button type="submit" class="btn btn-success btn-block">Bayar</button>
+            </form>
         </div>
     </div>
 </div>
