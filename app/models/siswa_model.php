@@ -11,7 +11,7 @@ class siswa_model {
 
     public function getAllSiswa()
     {
-        $query = "SELECT * FROM {$this->table}";
+        $query = "SELECT s.*, k.*, sp.* FROM {$this->table} AS s LEFT JOIN kelas AS k ON s.id_kelas=k.id_kelas LEFT JOIN spp AS sp ON s.id_spp=sp.id_spp";
         $this->db->query($query);
 
         return $this->db->resultSet();

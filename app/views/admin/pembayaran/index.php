@@ -1,67 +1,60 @@
 <div class="container-fluid">
     <?php Flasher::flash(); ?>
 
-    <div class="row mb-4">
-        <div class="col-lg-4">
-            <div class="card  mb-4">
-                <div class="card-body py-3">
-                    <div class="col-sm-8">
-                        <img class="rounded-circle" src="<?=BASE_URL?>/img/undraw_profile_1.svg"                        alt="...">
-                    </div>
-                    <div class="col mb-3">
-                        <h6 class="text-muted mb-1">NISN</h6>
-                        <h6 class="font-weight-bold text-grey-800 m-0">1241241414</h6>
-                    </div>
-                    <div class="col mb-3">
-                        <h6 class="text-muted mb-1">NIS</h6>
-                        <h6 class="font-weight-bold text-grey-800 m-0">11211</h6>
-                    </div>
-                    <div class="col mb-3">
-                        <h6 class="text-muted mb-1">Nama Lengkap</h6>
-                        <h6 class="font-weight-bold text-grey-800 m-0">Nama Lengkap Siswa</h6>
-                    </div>
-                    <div class="col mb-3">
-                        <h6 class="text-muted mb-1">Kelas</h6>
-                        <h6 class="font-weight-bold text-grey-800 m-0">XII RPL 2</h6>
-                    </div>
-                </div>
-            </div>
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header">
+            <h6 class="font-weight-bold text-primary m-0">Daftar Siswa</h6>
         </div>
-
-        <div class="col-lg-8">
-            <div class="card mb-3">
-                <div class="card-body py-3">
-                    <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post">
-                    <div class="row">
-                        <?php foreach($data['bulan'] as $bulan): ?>
-                            <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
-                            <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
-                            <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
-
-                            <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
-                                <input type="hidden" name="bulan[<?=$bulan?>]" value="false" data-bulan="<?=$bulan?>">
-
-                                <?php if(in_array($bulan, $data['bulan_terbayar'])): ?>
-                                    <card class="card p-3 bg-success text-white">
-                                        <h6 class="text-uppercase"><?=$bulan?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </card>
-
-                                <?php else: ?>
-                                    <button type="button" class="card p-3 btn-block">
-                                        <h6 class="text-uppercase"><?=$bulan?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </button>
-
-                                <?php endif ?>
-
-                            </div>
-                        <?php endforeach ?>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-success btn-block">Bayar</button>
-            </form>
+        <div class="card-body py-3">
+            <table class="table table-bordered" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NISN</th>
+                        <th>NIS</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($data['siswa'] as $key => $siswa): ?>
+                        <tr>
+                            <td class="text-right"><?=++$key?></td>
+                            <td><?=$siswa['nisn']?></td>
+                            <td><?=$siswa['nis']?></td>
+                            <td><?=$siswa['nama_siswa']?></td>
+                            <td><?=$siswa['nama_kelas']?></td>
+                            <td><a href="<?=BASE_URL?>/admin-pembayaran/detail/<?=$siswa['id_siswa']?>" class="btn btn-primary">Bayar</a></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
+    <!-- Admin Delete Petugas Modal-->
+    <div class="modal fade" id="adminDeletePetugasModal" tabindex="-1" role="dialog" aria-labelledby="adminDeletePetugasModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminDeleteSppModalLabel">Hapus Data Petugas</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Yakin untuk hapus data Petugas?
+                    <form action="<?=BASE_URL?>/admin-petugas/delete" method="post">
+                        <input type="hidden" name="id" value="">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

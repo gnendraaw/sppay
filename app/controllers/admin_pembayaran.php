@@ -3,7 +3,23 @@
 class Admin_pembayaran extends Controller {
     public function index()
     {
-        $siswa = $this->model('siswa_model')->getSiswaById('5');
+        $siswa = $this->model('siswa_model')->getAllSiswa();
+
+        $data = [
+            'title' => 'Manajemen Pembayaran',
+            'heading' => 'transaksi',
+            'options' => 'pembayaran spp',
+            'siswa' => $siswa,
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('admin/pembayaran/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function detail($id)
+    {
+        $siswa = $this->model('siswa_model')->getSiswaById($id);
         $pembayaran = $this->model('pembayaran_model')->getPembayaranBySiswaId($siswa['id_siswa']);
         $bulan = [
             'juli', 'agustus', 'september', 'oktober', 'november', 'desember', 'januari', 'februari', 'maret', 'april', 'mei', 'juni',
@@ -23,7 +39,7 @@ class Admin_pembayaran extends Controller {
         ];
 
         $this->view('templates/header', $data);
-        $this->view('admin/pembayaran/index', $data);
+        $this->view('admin/pembayaran/detail', $data);
         $this->view('templates/footer');
     }
 
@@ -50,11 +66,11 @@ class Admin_pembayaran extends Controller {
                 else
                 {
                     Flasher::setFlash('Gagal menyimpan data pembayaran!', 'danger');
-                    Direct::directTo('/admin-pembayaran');
+                    Direct::directTo('/admin-pembayaran/detail/'.$_POST['id_siswa'].'');
                 }
             }
         }
 
-        Direct::directTo('/admin-pembayaran');
+        Direct::directTo('/admin-pembayaran/detail/'.$_POST['id_siswa'].'');
     }
 }
