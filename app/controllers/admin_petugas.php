@@ -84,4 +84,15 @@ class Admin_petugas extends Controller {
         Flasher::setFlash('Gagal merubah data petugas', 'danger');
         Direct::directTo('/admin-petugas');
     }
+
+    public function delete()
+    {
+        if ($this->model('petugas_model')->deletePetugas($_POST['id']) > 0)
+        {
+            Flasher::setFlash('Data petugas berhasil dihapus!', 'success');
+            Direct::directTo('/admin-petugas');
+        }
+        Flasher::setFlash('Gagal menghapus data petugas', 'danger');
+        Direct::directTo('/admin-petugas');
+    }
 }

@@ -190,6 +190,16 @@
                 modal.find('button[type=submit]').html(data['btn'])
             }
             // end of admin kelas manajemen
+
+            // beginning of admin petugas manajemen
+            $('.petugas-row').on('click', '#adminDeletePetugasBtn', function() {
+                const id = $(this).parents('.petugas-row').data('idpetugas')
+                console.log('id', id)
+
+                modal = $('#adminDeletePetugasModal')
+                modal.find('input[type=hidden]').val(id)
+            })
+            // end of admin petugas manajemen
         })
     </script>
 </body>
