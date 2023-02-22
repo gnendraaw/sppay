@@ -75,13 +75,13 @@
                 </div>
             </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Sekolah
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Sekolah
+            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item <?=$data['heading']=='manajemen kelas' ? 'active' : ''?>">
@@ -126,6 +126,20 @@
                         <a class="collapse-item <?=$data['options']=='daftar petugas' ? 'active' : ''?>" href="<?=BASE_URL?>/admin-petugas">Daftar Petugas</a>
                     </div>
                 </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
+
+            <li class="nav-item <?=$data['heading']=='transaksi' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/admin-pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran SPP</span></a>
             </li>
             <?php endif ?>
         </ul>
