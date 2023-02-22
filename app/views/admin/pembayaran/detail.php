@@ -6,7 +6,7 @@
             <div class="card  mb-4">
                 <div class="card-body py-3">
                     <div class="col-12 mb-4">
-                        <img class="rounded-circle" src="<?=BASE_URL?>/img/undraw_profile_1.svg" alt="...">
+                        <img class="rounded-circle" src="<?=BASE_URL?>/img/undraw_profile.svg" alt="...">
                     </div>
                     <div class="col mb-3">
                         <h6 class="text-muted mb-1">NISN</h6>

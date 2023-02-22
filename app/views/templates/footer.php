@@ -128,7 +128,6 @@
             // admin kelas manajemen
             $('.kelas-row').on('click', '#adminEditKelasBtn', function () {
                 const id = $(this).parents('.kelas-row').data('idkelas')
-                console.log('id', id)
 
                 getKelasData(id)
             })
@@ -171,7 +170,6 @@
 
             $('.kelas-row').on('click', '#adminHapusKelasBtn', function() {
                 const id = $(this).parents('.kelas-row').data('idkelas')
-                console.log('id', id)
 
                 $modal = $('#adminDeleteKelasModal')
                 $modal.find('input[type=hidden]').val(id)
@@ -194,12 +192,19 @@
             // beginning of admin petugas manajemen
             $('.petugas-row').on('click', '#adminDeletePetugasBtn', function() {
                 const id = $(this).parents('.petugas-row').data('idpetugas')
-                console.log('id', id)
 
                 modal = $('#adminDeletePetugasModal')
                 modal.find('input[type=hidden]').val(id)
             })
             // end of admin petugas manajemen
+
+            // bgeinning of admin siswa manajemen
+            $('.siswa-row').on('click', '#adminDeleteSiswaBtn', function() {
+                const id = $(this).parents('.siswa-row').data('idsiswa')
+
+                $('#adminDeleteSiswaModal').find('input[type=hidden]').val(id)
+            })
+            // end of admin siswa manajemen
 
             // beginning of admin pembayaran manajemen
             $('.spp-card').on('click', 'button[type=button]', function() {

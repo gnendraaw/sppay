@@ -80,4 +80,15 @@ class siswa_model {
         
         return $this->db->single();
     }
+
+    public function deleteSiswa($id)
+    {
+        $query = "DELETE FROM {$this->table} WHERE id_siswa=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

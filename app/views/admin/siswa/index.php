@@ -47,3 +47,30 @@
         </div>
     </div>
 </div>
+
+    <!-- Admin Delete Siswa Modal-->
+    <div class="modal fade" id="adminDeleteSiswaModal" tabindex="-1" role="dialog" aria-labelledby="adminDeleteSiswaModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminDeleteSiswaModal">Hapus Data Siswa</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Yakin untuk hapus data Siswa?
+                    <br>
+                    Dengan menghapus data siswa, riwayat pembayaran SPP siswa juga akan terhapus!
+                    <form action="<?=BASE_URL?>/admin-siswa/delete" method="post">
+                        <input type="hidden" name="id" value="">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -94,4 +94,17 @@ class Admin_siswa extends Controller {
         Flasher::setFlash('Gagal merubah data siswa!', 'danger');
         Direct::directTo('/admin-siswa');
     }
+
+    public function delete()
+    {
+        if ($this->model('siswa_model')->deleteSiswa($_POST['id']) > 0)
+        {
+            Flasher::setFlash('Data siswa berhasil dihapus!', 'success');
+            Direct::directTo('/admin-siswa');
+            exit;
+        }
+        Flasher::setFlash('Gagal menghapus data siswa!', 'dangesuccessr');
+        Direct::directTo('/admin-siswa');
+        exit;
+    }
 }
