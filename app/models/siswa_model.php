@@ -71,4 +71,13 @@ class siswa_model {
 
         return $this->db->rowCount();
     }
+
+    public function getSiswaByNIS($nis)
+    {
+        $query = "SELECT s.*, k.*, sp.* FROM {$this->table} AS s LEFT JOIN kelas AS k ON s.id_kelas=k.id_kelas LEFT JOIN spp AS sp ON s.id_spp=sp.id_spp WHERE s.nis=:nis";
+        $this->db->query($query);
+        $this->db->bind('nis', $nis);
+        
+        return $this->db->single();
+    }
 }
