@@ -3,7 +3,7 @@
 class Admin_pembayaran extends Controller {
     public function index()
     {
-        $siswa = $this->model('siswa_model')->getSiswaById('4');
+        $siswa = $this->model('siswa_model')->getSiswaById('5');
         $pembayaran = $this->model('pembayaran_model')->getPembayaranBySiswaId($siswa['id_siswa']);
         $bulan = [
             'juli', 'agustus', 'september', 'oktober', 'november', 'desember', 'januari', 'februari', 'maret', 'april', 'mei', 'juni',

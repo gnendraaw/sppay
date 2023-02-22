@@ -203,13 +203,11 @@
 
             // beginning of admin pembayaran manajemen
             $('.spp-card').on('click', 'button[type=button]', function() {
-                console.log('clicked')
                 input = $(this).siblings('input[type=hidden]')
 
                 val = $(this).siblings('input[type=hidden]').val()
                 val = val == 'true' ? 'false' : 'true'
                 input.val(val)
-                console.log(input.val())
 
                 val == 'true' ? $(this).addClass('bg-warning text-white') : $(this).removeClass('bg-warning text-white')
             })
