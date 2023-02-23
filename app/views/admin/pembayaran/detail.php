@@ -31,15 +31,15 @@
         <div class="col-lg-8">
             <div class="card mb-3">
                 <div class="card-body py-3">
-                    <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post">
+                    <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post" id="adminBayarSppForm">
                     <div class="row">
-                        <?php foreach($data['bulan'] as $bulan): ?>
-                            <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
-                            <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
-                            <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
+                        <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
+                        <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
+                        <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
 
+                        <?php foreach($data['bulan'] as $bulan): ?>
                             <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
-                                <input type="hidden" name="bulan[<?=$bulan?>]" value="false" data-bulan="<?=$bulan?>">
+                                <input type="hidden" name="bulan[<?=$bulan?>]" value="false" data-bulan="<?=$bulan?>" id="inputBulan">
 
                                 <?php if(in_array($bulan, $data['bulan_terbayar'])): ?>
                                     <card class="card p-3 bg-success text-white">
@@ -54,14 +54,40 @@
                                     </button>
 
                                 <?php endif ?>
-
                             </div>
                         <?php endforeach ?>
+
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success btn-block">Bayar</button>
+            <button type="button" class="btn btn-success btn-block" id="adminBayarSppBtn" data-toggle="modal" data-target="#adminBayarSppModal">Bayar</button>
             </form>
         </div>
     </div>
 </div>
+
+    <!-- Admin Delete Petugas Modal-->
+    <div class="modal fade" id="adminBayarSppModal" tabindex="-1" role="dialog" aria-labelledby="adminBayarSppModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <h5 class="modal-title" id="adminBayarSppLabel">Bayar SPP</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div> -->
+                <div class="modal-body m-0 py-3">
+                    <div class="col">
+                        <p class="m-0">Total Harga</p>
+                        <h4 class="font-weight-bold" id="adminBayarSppModalTotalHarga">Rp 0</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-block">Bayar</button>
+                    <button class="btn btn-outline-secondary btn-block" type="button" data-dismiss="modal">Batal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

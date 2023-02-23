@@ -207,6 +207,13 @@
             // end of admin siswa manajemen
 
             // beginning of admin pembayaran manajemen
+            var jumlahBulan = 0
+            var totalHarga = 0
+
+            function sumHarga(jBulan, harga) {
+                return jBulan * harga
+            }
+
             $('.spp-card').on('click', 'button[type=button]', function() {
                 input = $(this).siblings('input[type=hidden]')
 
@@ -214,7 +221,38 @@
                 val = val == 'true' ? 'false' : 'true'
                 input.val(val)
 
-                val == 'true' ? $(this).addClass('bg-warning text-white') : $(this).removeClass('bg-warning text-white')
+                form = $(this).parents('#adminBayarSppForm')
+                harga = form.find('input[name=nominal]').val()
+                console.log('harga', harga)
+
+                bulan = $(this).siblings('#inputBulan').data('bulan')
+                console.log('bulan', bulan)
+
+                if (val == 'true')
+                {
+                    $(this).addClass('bg-warning text-white')
+                    jumlahBulan++
+                    totalHarga = sumHarga(jumlahBulan, harga)
+                }
+                else {
+                    $(this).removeClass('bg-warning text-white')
+                    jumlahBulan--
+                    totalHarga = sumHarga(jumlahBulan, harga)
+                }
+
+                modal = $('#adminBayarSppModal')
+                modal.find('#adminBayarSppModalTotalHarga').html('Rp ' + totalHarga)
+
+                console.log('jumlah bulan', jumlahBulan)
+                console.log('total harga', totalHarga)
+            })
+
+            $('#adminBayarSppModal').on('click', 'button.btn-success', function() {
+                form = $('#adminBayarSppForm').submit()
+            })
+
+            $('#adminBayarSppBtn').on('click', function() {
+                console.log('clicked')
             })
             // end of admin pembayaran manajemen
         })
