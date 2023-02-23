@@ -41,7 +41,8 @@
                         <?php foreach($data['bulan'] as $key => $bulan): ?>
                             <th>
                                 <center>
-                                    <?=++$key?>
+                                    <?php $key += $key + 7 > 12 ? -5 : 7?>
+                                    <?=$key?>
                                 </center>
                             </th>
                         <?php endforeach ?>
