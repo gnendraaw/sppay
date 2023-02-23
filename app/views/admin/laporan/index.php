@@ -1,4 +1,6 @@
 <div class="container-fluid">
+    <a href="<?=BASE_URL?>/admin-laporan/cetak" class="btn btn-primary mb-3">Cetak Laporan</a>
+
     <div class="card shadow mb-4">
         <div class="card-header">
             <h6 class="text-primary font-weight-bold m-0">Laporan Pembayaran SPP Siswa</h6>
