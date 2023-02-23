@@ -3,7 +3,7 @@
 class Admin_riwayat_pembayaran extends Controller {
     public function index()
     {
-        $pembayaran = $this->model('pembayaran_model')->getAllPembayaran();
+        $pembayaran = $this->model('pembayaran_model')->getAllPembayaran('DESC');
         $data = [
             'title' => 'Riwayat Pembayaran',
             'heading' => 'transaksi',

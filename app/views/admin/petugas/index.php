@@ -7,7 +7,7 @@
             <a class="btn btn-primary my-2" href="<?=BASE_URL?>/admin-petugas/create">Tambah Data Petugas</a>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered" id="dataTable">
+            <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -18,6 +18,7 @@
                 </thead>
                 <tbody>
                     <?php foreach($data['petugas'] as $petugas):?>
+                        <?php if($petugas['id_petugas'] != $_SESSION['user']['id_user']): ?>
                         <tr class="petugas-row" data-idpetugas="<?=$petugas['id_petugas']?>">
                             <td>
                                     <div class="dropdown no-arrow">
@@ -37,6 +38,7 @@
                             <td><?=$petugas['nama_petugas']?></td>
                             <td><?=$petugas['keterangan']?></td>
                         </tr>
+                        <?php endif ?>
                     <?php endforeach ?>
                 </tbody>
             </table>

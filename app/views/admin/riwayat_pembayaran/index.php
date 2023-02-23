@@ -7,6 +7,7 @@
             <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                     <th>#</th>
+                    <th>Tanggal</th>
                     <th>NISN</th>
                     <th>NIS</th>
                     <th>Nama Siswa</th>
@@ -18,6 +19,7 @@
                     <?php foreach($data['pembayaran'] as $key => $pembayaran): ?>
                         <tr>
                             <td><?=++$key?></td>
+                            <td><?=$pembayaran['tgl_bayar']?></td>
                             <td><?=$pembayaran['nisn']?></td>
                             <td><?=$pembayaran['nis']?></td>
                             <td><?=$pembayaran['nama_siswa']?></td>

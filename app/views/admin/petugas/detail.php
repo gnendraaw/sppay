@@ -6,7 +6,11 @@
         <div class="card-body py-3">
             <form action="<?=BASE_URL?>/admin-petugas/update" method="post">
             <div class="form-row">
-                <div class="col-md-5">
+                <div class="col-md-5 d-flex justify-content-center align-items-center">
+                    <div class="col-8">
+                        <img class="img-profile rounded-circle"
+                            src="<?=BASE_URL?>/img/undraw_profile.svg">
+                    </div>
                 </div>
 
                 <div class="col-md-7">

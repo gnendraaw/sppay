@@ -24,7 +24,7 @@
                     <p><?=date('d F Y')?></p>
 
                     <p class="font-weight-bold text-primary m-0">Waktu</p>
-                    <p><?=date('h : m : s')?></p>
+                    <p><?=date('H:m:sa')?></p>
 
                 <hr>
 

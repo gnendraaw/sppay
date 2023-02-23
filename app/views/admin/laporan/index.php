@@ -16,7 +16,7 @@
                 <tbody>
                     <?php foreach($data['siswa'] as $siswa): ?>
                         <tr>
-                            <td><?=$siswa['nama_siswa']?></td>
+                            <td style="width: 200px;"><?=$siswa['nama_siswa']?></td>
                             <?php foreach($data['bulan'] as $bulan): ?>
                                 <td>
                                     <?php if(in_array($bulan, $data['pembayaran'][$siswa['id_siswa']])): ?>
