@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <a href="<?=BASE_URL?>/admin-laporan/cetak" class="btn btn-primary mb-3">Cetak Laporan</a>
+    <a target="_blank" href="<?=BASE_URL?>/admin-laporan/cetak" class="btn btn-primary mb-3">Cetak Laporan</a>
 
     <div class="card shadow mb-4">
         <div class="card-header">
