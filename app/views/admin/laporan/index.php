@@ -4,7 +4,7 @@
             <h6 class="text-primary font-weight-bold m-0">Laporan Pembayaran SPP Siswa</h6>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered" id="dataTable">
+            <table class="table table-striped table-bordered" id="dataTable">
                 <thead>
                     <th>#</th>
                     <?php foreach($data['bulan'] as $bulan): ?>
@@ -17,7 +17,14 @@
                             <td><?=$siswa['nama_siswa']?></td>
                             <?php foreach($data['bulan'] as $bulan): ?>
                                 <td>
-                                    <?=in_array($bulan, $data['pembayaran'][$siswa['id_siswa']]) ? 'v' : 'x' ?>
+                                    <?php if(in_array($bulan, $data['pembayaran'][$siswa['id_siswa']])): ?>
+                                        <p class="font-weight-bold text-success">v</p>
+
+                                    <?php else: ?>
+                                        <p class="font-weight-bold text-danger">x</p>
+
+                                    <?php endif ?>
+                                    
                                 </td>
                             <?php endforeach ?>
                         </tr>

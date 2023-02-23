@@ -7,7 +7,7 @@
             <button class="btn btn-primary my-2" data-toggle="modal" data-target="#adminKelasModal" id="adminTambahKelasBtn">Tambah Data Kelas</button>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered" id="dataTable">
+            <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                     <tr>
                         <th>#</th>

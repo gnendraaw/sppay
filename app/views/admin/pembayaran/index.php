@@ -6,7 +6,7 @@
             <h6 class="font-weight-bold text-primary m-0">Daftar Siswa</h6>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered" id="dataTable">
+            <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                     <tr>
                         <th>#</th>

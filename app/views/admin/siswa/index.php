@@ -7,7 +7,7 @@
             <a class="btn btn-primary my-2" href="<?=BASE_URL?>/admin-siswa/create">Tambah Data Siswa</a>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered" id="dataTable">
+            <table class="table table-bordered table-striped" id="dataTable">
                 <thead>
                     <tr>
                         <th>#</th>
