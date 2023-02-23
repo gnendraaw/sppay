@@ -136,10 +136,16 @@
                 Transaksi
             </div>
 
-            <li class="nav-item <?=$data['heading']=='transaksi' ? 'active' : ''?>">
+            <li class="nav-item <?=$data['options']=='pembayaran spp' ? 'active' : ''?>">
                 <a class="nav-link" href="<?=BASE_URL?>/admin-pembayaran">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Pembayaran SPP</span></a>
+            </li>
+
+            <li class="nav-item <?=$data['options']=='laporan pembayaran' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/admin-laporan">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Laporan Pembayaran</span></a>
             </li>
             <?php endif ?>
         </ul>
