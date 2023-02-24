@@ -3,6 +3,8 @@
 class Admin_petugas extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $petugas = $this->model('petugas_model')->getAllPetugas();
 
         $data = [
@@ -19,6 +21,8 @@ class Admin_petugas extends Controller {
 
     public function create()
     {
+        Middleware::onlyAdmin();
+
         $level = $this->model('level_model')->getAllLevel();
         $data = [
             'title' => 'Manajemen Petugas',
@@ -34,6 +38,8 @@ class Admin_petugas extends Controller {
 
     public function store()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
@@ -52,6 +58,8 @@ class Admin_petugas extends Controller {
 
     public function detail($id)
     {
+        Middleware::onlyAdmin();
+
         $petugas = $this->model('petugas_model')->getPetugasById($id);
         $level = $this->model('level_model')->getAllLevel();
         $data = [
@@ -69,6 +77,8 @@ class Admin_petugas extends Controller {
 
     public function update()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
@@ -87,6 +97,8 @@ class Admin_petugas extends Controller {
 
     public function delete()
     {
+        Middleware::onlyAdmin();
+
         if ($this->model('petugas_model')->deletePetugas($_POST['id']) > 0)
         {
             Flasher::setFlash('Data petugas berhasil dihapus!', 'success');

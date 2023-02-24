@@ -3,6 +3,8 @@
 class Admin_laporan extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $bulan = [
             'juli', 'agustus', 'september', 'oktober', 'november', 'desember', 'januari', 'februari', 'maret', 'april', 'mei', 'juni',
         ];
@@ -33,6 +35,8 @@ class Admin_laporan extends Controller {
 
     public function cetak()
     {
+        Middleware::onlyAdmin();
+
         $bulan = [
             'juli', 'agustus', 'september', 'oktober', 'november', 'desember', 'januari', 'februari', 'maret', 'april', 'mei', 'juni',
         ];

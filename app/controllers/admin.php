@@ -3,6 +3,8 @@
 class Admin extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'title' => 'Dashboard',
             'heading' => 'dashboard',

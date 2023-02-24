@@ -32,7 +32,7 @@ class Login extends Controller {
         $_SESSION['user'] = [
             'id_user' => $pengguna['id_pengguna'],
             'username' => $pengguna['username'],
-            'level' => $pengguna['keterangan'],
+            'level' => $pengguna['id_level'],
         ];
         Direct::directTo();
     }

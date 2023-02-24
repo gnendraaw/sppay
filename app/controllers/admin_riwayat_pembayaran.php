@@ -3,6 +3,8 @@
 class Admin_riwayat_pembayaran extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $pembayaran = $this->model('pembayaran_model')->getAllPembayaran('DESC');
         $data = [
             'title' => 'Riwayat Pembayaran',

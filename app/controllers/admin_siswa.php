@@ -3,6 +3,8 @@
 class Admin_siswa extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $siswa = $this->model('siswa_model')->getAllSiswa();
 
         $data = [
@@ -19,6 +21,8 @@ class Admin_siswa extends Controller {
 
     public function create()
     {
+        Middleware::onlyAdmin();
+
         $kelas = $this->model('kelas_model')->getAllKelas();
         $spp = $this->model('spp_model')->getAllSpp();
 
@@ -37,6 +41,8 @@ class Admin_siswa extends Controller {
 
     public function detail($id)
     {
+        Middleware::onlyAdmin();
+
         $siswa = $this->model('siswa_model')->getSiswaById($id);
 
         $data = [
@@ -53,6 +59,8 @@ class Admin_siswa extends Controller {
 
     public function store()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'nisn' => $_POST['nisn'],
             'nis' => $_POST['nis'],
@@ -75,6 +83,8 @@ class Admin_siswa extends Controller {
 
     public function update()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'id' => $_POST['id'],
             'nisn' => $_POST['nisn'],
@@ -97,6 +107,8 @@ class Admin_siswa extends Controller {
 
     public function delete()
     {
+        Middleware::onlyAdmin();
+
         if ($this->model('siswa_model')->deleteSiswa($_POST['id']) > 0)
         {
             Flasher::setFlash('Data siswa berhasil dihapus!', 'success');

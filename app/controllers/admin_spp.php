@@ -4,6 +4,8 @@
 class Admin_spp extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $spp = $this->model('spp_model')->getAllSpp();
 
         $data = [
@@ -20,6 +22,8 @@ class Admin_spp extends Controller {
 
     public function store()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'tahun' => $_POST['tahun'],
             'nominal' => $_POST['nominal'],
@@ -36,6 +40,8 @@ class Admin_spp extends Controller {
 
     public function delete()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'id_spp' => $_POST['id'],
         ];
@@ -51,6 +57,8 @@ class Admin_spp extends Controller {
 
     public function update()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'id' => $_POST['id'],
             'tahun' => $_POST['tahun'],

@@ -3,6 +3,8 @@
 class Admin_pembayaran extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $siswa = $this->model('siswa_model')->getAllSiswa();
 
         $data = [
@@ -19,6 +21,8 @@ class Admin_pembayaran extends Controller {
 
     public function detail($id)
     {
+        Middleware::onlyAdmin();
+
         $siswa = $this->model('siswa_model')->getSiswaById($id);
         $pembayaran = $this->model('pembayaran_model')->getPembayaranBySiswaId($siswa['id_siswa']);
         $bulan = [
@@ -45,6 +49,8 @@ class Admin_pembayaran extends Controller {
 
     public function store()
     {
+        Middleware::onlyAdmin();
+
         foreach($_POST['bulan'] as $key => $val)
         {
             if ($val == 'true')

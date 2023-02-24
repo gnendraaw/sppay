@@ -3,6 +3,8 @@
 class Admin_kelas extends Controller {
     public function index()
     {
+        Middleware::onlyAdmin();
+
         $kelas = $this->model('kelas_model')->getAllKelas();
 
         $data = [
@@ -19,6 +21,8 @@ class Admin_kelas extends Controller {
 
     public function store()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'nama' => $_POST['nama'],
             'komp' => $_POST['komp'],
@@ -35,6 +39,8 @@ class Admin_kelas extends Controller {
 
     public function update()
     {
+        Middleware::onlyAdmin();
+
         $data = [
             'id' => $_POST['id'],
             'nama' => $_POST['nama'],
@@ -52,6 +58,8 @@ class Admin_kelas extends Controller {
 
     public function delete()
     {
+        Middleware::onlyAdmin();
+
         if ($this->model('kelas_model')->deleteKelasById($_POST['id']) > 0)
         {
             Flasher::setFlash('Data kelas berhasil dihapus!', 'success');
