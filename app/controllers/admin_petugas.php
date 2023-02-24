@@ -40,19 +40,27 @@ class Admin_petugas extends Controller {
     {
         Middleware::onlyAdmin();
 
+        $pengguna = $this->model('pengguna_model')->getLatestIdPengguna();
+
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
             'level' => $_POST['level'],
             'password' => md5($_POST['password']),
+            'id_pengguna' => ++$pengguna['id_pengguna'],
         ];
 
-        if ($this->model('petugas_model')->addPetugas($data) > 0)
+        if (!$this->model('pengguna_model')->addPengguna($data) > 0)
         {
-            Flasher::setFlash('Data petugas berhasil ditambahkan!', 'success');
+            Flasher::setFlash('Gagal menambahkan data pengguna', 'danger');
             Direct::directTo('/admin-petugas');
         }
-        Flasher::setFlash('Gagal menambahkan data petugas', 'danger');
+        if (!$this->model('petugas_model')->addPetugas($data) > 0)
+        {
+            Flasher::setFlash('Gagal menambahkan data petugas', 'danger');
+            Direct::directTo('/admin-petugas');
+        }
+        Flasher::setFlash('Data petugas berhasil ditambahkan!', 'success');
         Direct::directTo('/admin-petugas');
     }
 
@@ -82,16 +90,23 @@ class Admin_petugas extends Controller {
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
+            'password' => md5($_POST['password']),
             'id_petugas' => $_POST['id'],
             'id_level' => $_POST['level'],
+            'id_pengguna' => $_POST['id_pengguna'],
         ];
 
-        if ($this->model('petugas_model')->updatePetugas($data) > 0)
+        if (!$this->model('pengguna_model')->updatePengguna($data) > 0)
         {
-            Flasher::setFlash('Data petugas berhasil dirubah!', 'success');
+            Flasher::setFlash('Gagal merubah data pengguna', 'danger');
+            exit;
+        }
+        if (!$this->model('petugas_model')->updatePetugas($data) > 0)
+        {
+            Flasher::setFlash('Gagal merubah data petugas', 'danger');
             Direct::directTo('/admin-petugas');
         }
-        Flasher::setFlash('Gagal merubah data petugas', 'danger');
+        Flasher::setFlash('Data petugas berhasil dirubah!', 'success');
         Direct::directTo('/admin-petugas');
     }
 
@@ -99,7 +114,7 @@ class Admin_petugas extends Controller {
     {
         Middleware::onlyAdmin();
 
-        if ($this->model('petugas_model')->deletePetugas($_POST['id']) > 0)
+        if ($this->model('pengguna_model')->deletePengguna($_POST['id']) > 0)
         {
             Flasher::setFlash('Data petugas berhasil dihapus!', 'success');
             Direct::directTo('/admin-petugas');

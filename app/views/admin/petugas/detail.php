@@ -15,6 +15,7 @@
 
                 <div class="col-md-7">
                     <div class="form-row">
+                        <input type="hidden" name="id_pengguna" value="<?=$data['petugas']['id_pengguna']?>">
                         <div class="form-group col-md-6">
                             <input type="hidden" name="id" value="<?=$data['petugas']['id_petugas']?>">
                             <label for="adminUsernamePetugasInput">Username</label>

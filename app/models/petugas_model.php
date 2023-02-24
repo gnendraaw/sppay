@@ -21,7 +21,7 @@ class Petugas_model {
 
     public function getAllPetugas()
     {
-        $query = "SELECT p.*, l.* FROM {$this->table} AS p LEFT JOIN level AS l ON p.id_level=l.id_level";
+        $query = "SELECT pet.*, pen.*, l.* FROM {$this->table} AS pet LEFT JOIN pengguna AS pen ON pet.id_pengguna=pen.id_pengguna LEFT JOIN level AS l ON pen.level=l.id_level";
         $this->db->query($query);
 
         return $this->db->resultSet();
@@ -29,12 +29,12 @@ class Petugas_model {
 
     public function addPetugas($data)
     {
-        $query = "INSERT INTO {$this->table} VALUES(NULL, :username, :password, :nama, :level)";
+        $query = "CALL addPetugas(:username, :nama, :id_pengguna)";
         $this->db->query($query);
         $this->db->bind('username', $data['username']);
-        $this->db->bind('password', $data['password']);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('level', $data['level']);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('id_pengguna', $data['id_pengguna']);
 
         $this->db->execute();
 
@@ -43,7 +43,7 @@ class Petugas_model {
 
     public function getPetugasById($id)
     {
-        $query = "SELECT p.*, l.* FROM {$this->table} AS p LEFT JOIN level AS l ON p.id_level=l.id_level WHERE p.id_petugas=:id";
+        $query = "SELECT p.*, pen.id_pengguna, l.* FROM {$this->table} AS p LEFT JOIN pengguna AS pen ON p.id_pengguna=pen.id_pengguna LEFT JOIN level As l ON l.id_level=pen.level WHERE p.id_petugas=:id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 
@@ -61,11 +61,10 @@ class Petugas_model {
 
     public function updatePetugas($data)
     {
-        $query = "UPDATE {$this->table} SET username=:username, nama_petugas=:nama, id_level=:id_level WHERE id_petugas=:id_petugas";
+        $query = "CALL updatePetugas(:username, :nama, :id_petugas)";
         $this->db->query($query);
         $this->db->bind('username', $data['username']);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('id_level', $data['id_level']);
         $this->db->bind('id_petugas', $data['id_petugas']);
 
         $this->db->execute();

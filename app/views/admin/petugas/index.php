@@ -18,8 +18,7 @@
                 </thead>
                 <tbody>
                     <?php foreach($data['petugas'] as $petugas):?>
-                        <?php if($petugas['id_petugas'] != $_SESSION['user']['id_user']): ?>
-                        <tr class="petugas-row" data-idpetugas="<?=$petugas['id_petugas']?>">
+                        <tr class="petugas-row" data-idpetugas="<?=$petugas['id_pengguna']?>">
                             <td>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -38,7 +37,6 @@
                             <td><?=$petugas['nama_petugas']?></td>
                             <td><?=$petugas['keterangan']?></td>
                         </tr>
-                        <?php endif ?>
                     <?php endforeach ?>
                 </tbody>
             </table>

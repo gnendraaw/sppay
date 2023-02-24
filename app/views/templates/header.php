@@ -153,6 +153,13 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Laporan Pembayaran</span></a>
             </li>
+            <?php elseif($_SESSION['user']['level']=='2'): ?>
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item <?=$data['heading']=='dashboard' ? 'active' : ''?>">
+                    <a class="nav-link" href="<?=BASE_URL?>/admin">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
             <?php endif ?>
         </ul>
         <!-- End of Sidebar -->
