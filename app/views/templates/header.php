@@ -44,7 +44,7 @@
             <hr class="sidebar-divider my-0">
 
             <?php if(!isset($_SESSION['user'])): ?>
-            <?php elseif($_SESSION['user']['level']==1): ?>
+            <?php elseif($_SESSION['user']['level']=='admin'): ?>
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item <?=$data['heading']=='dashboard' ? 'active' : ''?>">
                     <a class="nav-link" href="<?=BASE_URL?>/admin">
