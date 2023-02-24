@@ -51,6 +51,8 @@ class Admin_pembayaran extends Controller {
     {
         Middleware::onlyAdmin();
 
+        $petugas = $this->model('petugas_model')->getPetugasIdByPenggunaId($_SESSION['user']['id_user']);
+
         foreach($_POST['bulan'] as $key => $val)
         {
             if ($val == 'true')
@@ -58,7 +60,7 @@ class Admin_pembayaran extends Controller {
                 $data = [
                     'id_spp' => $_POST['id_spp'],
                     'id_siswa' => $_POST['id_siswa'],
-                    'id_petugas' => $_SESSION['user']['id_user'],
+                    'id_petugas' => $petugas['id_petugas'],
                     'tgl' => date('Y-m-d'),
                     'bulan' => $key,
                     'tahun' => date('Y'),

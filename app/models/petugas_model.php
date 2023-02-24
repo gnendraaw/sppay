@@ -50,6 +50,15 @@ class Petugas_model {
         return $this->db->single();
     }
 
+    public function getPetugasIdByPenggunaId($id)
+    {
+        $query = "SELECT id_petugas FROM {$this->table} WHERE id_pengguna=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
     public function updatePetugas($data)
     {
         $query = "UPDATE {$this->table} SET username=:username, nama_petugas=:nama, id_level=:id_level WHERE id_petugas=:id_petugas";
