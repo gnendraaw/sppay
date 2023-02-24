@@ -156,10 +156,25 @@
             <?php elseif($_SESSION['user']['level']=='2'): ?>
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item <?=$data['heading']=='dashboard' ? 'active' : ''?>">
-                    <a class="nav-link" href="<?=BASE_URL?>/admin">
+                    <a class="nav-link" href="<?=BASE_URL?>/petugas">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
+
+            <li class="nav-item <?=$data['options']=='pembayaran spp' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/petugas-pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Pembayaran SPP</span></a>
+            </li>
+
             <?php endif ?>
         </ul>
         <!-- End of Sidebar -->

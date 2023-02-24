@@ -25,7 +25,7 @@
                             <td><?=$siswa['nis']?></td>
                             <td><?=$siswa['nama_siswa']?></td>
                             <td><?=$siswa['nama_kelas']?></td>
-                            <td><a href="<?=BASE_URL?>/admin-pembayaran/detail/<?=$siswa['id_siswa']?>" class="btn btn-primary">Bayar</a></td>
+                            <td><a href="<?=BASE_URL?>/petugas-pembayaran/detail/<?=$siswa['id_siswa']?>" class="btn btn-primary">Bayar</a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

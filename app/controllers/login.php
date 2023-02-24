@@ -16,7 +16,7 @@ class Login extends Controller {
 
         $data = [
             'username' => $_POST['username'],
-            'password' => $_POST['password'],
+            'password' => md5($_POST['password']),
         ];
 
         $pengguna = $this->model('pengguna_model')->getPenggunaByUsernameAndPassword($data);

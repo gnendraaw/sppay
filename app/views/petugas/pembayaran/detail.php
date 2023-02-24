@@ -31,7 +31,7 @@
         <div class="col-lg-8">
             <div class="card mb-3">
                 <div class="card-body py-3">
-                    <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post" id="adminBayarSppForm">
+                    <form action="<?=BASE_URL?>/petugas-pembayaran/store" method="post" id="adminBayarSppForm">
                     <div class="row">
                         <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
                         <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
