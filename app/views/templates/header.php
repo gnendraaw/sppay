@@ -175,6 +175,12 @@
                     <span>Pembayaran SPP</span></a>
             </li>
 
+            <li class="nav-item <?=$data['options']=='riwayat pembayaran' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/petugas-riwayat-pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Riwayat Pembayaran</span></a>
+            </li>
+
             <?php endif ?>
         </ul>
         <!-- End of Sidebar -->
