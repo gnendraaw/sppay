@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                     <?php foreach($data['siswa'] as $siswa):?>
-                        <tr class="siswa-row" data-idsiswa="<?=$siswa['id_siswa']?>">
+                        <tr class="siswa-row" data-idsiswa="<?=$siswa['id_pengguna']?>">
                             <td>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"

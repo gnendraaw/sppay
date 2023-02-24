@@ -45,7 +45,7 @@ class Admin_petugas extends Controller {
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
-            'level' => $_POST['level'],
+            'id_level' => $_POST['level'],
             'password' => md5($_POST['password']),
             'id_pengguna' => ++$pengguna['id_pengguna'],
         ];

@@ -18,6 +18,7 @@
                         <div class="form-group col-md-6">
                             <label for="adminNisnInput">NISN</label>
                             <input type="hidden" name="id" value="<?=$data['siswa']['id_siswa']?>">
+                            <input type="hidden" name="id_pengguna" value="<?=$data['siswa']['id_pengguna']?>">
                             <input type="text" class="form-control" name="nisn" id="adminNisnInput" required maxlength="10" value="<?=$data['siswa']['nisn']?>">
                         </div>
                         <div class="form-group col-md-6">

@@ -104,14 +104,22 @@ class Admin_siswa extends Controller {
             'alamat' => $_POST['alamat'],
             'id_kelas' => $_POST['kelas'],
             'id_spp' => $_POST['spp'],
+            'username' => $_POST['nis'],
+            'id_level' => 3,
+            'id_pengguna' => $_POST['id_pengguna'],
         ];
 
-        if ($this->model('siswa_model')->updateSiswaById($data) > 0)
+        if (!$this->model('pengguna_model')->updatePengguna($data) > 0)
         {
-            Flasher::setFlash('Data siswa berhasil dirubah!', 'success');
+            Flasher::setFlash('Gagal merubah data pengguna', 'danger');
             Direct::directTo('/admin-siswa');
         }
-        Flasher::setFlash('Gagal merubah data siswa!', 'danger');
+        if (!$this->model('siswa_model')->updateSiswaById($data) > 0)
+        {
+            Flasher::setFlash('Gagal merubah data siswa!', 'danger');
+            Direct::directTo('/admin-siswa');
+        }
+        Flasher::setFlash('Data siswa berhasil dirubah!', 'success');
         Direct::directTo('/admin-siswa');
     }
 
@@ -119,13 +127,13 @@ class Admin_siswa extends Controller {
     {
         Middleware::onlyAdmin();
 
-        if ($this->model('siswa_model')->deleteSiswa($_POST['id']) > 0)
+        if ($this->model('pengguna_model')->deletePengguna($_POST['id']) > 0)
         {
             Flasher::setFlash('Data siswa berhasil dihapus!', 'success');
             Direct::directTo('/admin-siswa');
             exit;
         }
-        Flasher::setFlash('Gagal menghapus data siswa!', 'dangesuccessr');
+        Flasher::setFlash('Gagal menghapus data siswa!', 'danger');
         Direct::directTo('/admin-siswa');
         exit;
     }

@@ -63,8 +63,8 @@ class siswa_model {
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('telp', $data['telp']);
         $this->db->bind('alamat', $data['alamat']);
-        $this->db->bind('id_spp', $data['spp']);
-        $this->db->bind('id_kelas', $data['kelas']);
+        $this->db->bind('id_spp', $data['id_spp']);
+        $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('id_siswa', $data['id']);
 
         $this->db->execute();
