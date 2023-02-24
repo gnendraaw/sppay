@@ -29,16 +29,16 @@ class siswa_model {
 
     public function addSiswa($data)
     {
-        $query = "INSERT INTO {$this->table} VALUES(NULL, :nisn, :nis, :nama, :password, :telp, :alamat, :id_kelas, :id_spp)";
+        $query = "CALL addSiswa(:nisn, :nis, :nama, :telp, :alamat, :id_kelas, :id_spp, :id_pengguna)";
         $this->db->query($query);
         $this->db->bind('nisn', $data['nisn']);
         $this->db->bind('nis', $data['nis']);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('password', $data['password']);
         $this->db->bind('telp', $data['telp']);
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('id_spp', $data['id_spp']);
+        $this->db->bind('id_pengguna', $data['id_pengguna']);
 
         $this->db->execute();
 

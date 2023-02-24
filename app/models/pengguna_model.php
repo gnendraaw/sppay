@@ -18,4 +18,25 @@ class Pengguna_model {
 
         return $this->db->single();
     }
+
+    public function addPengguna($data)
+    {
+        $query = "CALL addPengguna(:username, :password, :level)";
+        $this->db->query($query);
+        $this->db->bind('username', $data['username']);
+        $this->db->bind('password', $data['password']);
+        $this->db->bind('level', $data['id_level']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function getLatestIdPengguna()
+    {
+        $query = "SELECT id_pengguna FROM {$this->table} ORDER BY id_pengguna DESC LIMIT 1";
+        $this->db->query($query);
+
+        return $this->db->single();
+    }
 }
