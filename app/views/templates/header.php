@@ -181,6 +181,27 @@
                     <span>Riwayat Pembayaran</span></a>
             </li>
 
+            <?php else: ?>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item <?=$data['heading']=='dashboard' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/petugas">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Transaksi
+            </div>
+
+            <li class="nav-item <?=$data['options']=='riwayat pembayaran' ? 'active' : ''?>">
+                <a class="nav-link" href="<?=BASE_URL?>/riwayat-pembayaran">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Riwayat Pembayaran</span></a>
+            </li>
+
             <?php endif ?>
         </ul>
         <!-- End of Sidebar -->

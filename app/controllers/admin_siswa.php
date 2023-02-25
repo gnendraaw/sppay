@@ -61,8 +61,6 @@ class Admin_siswa extends Controller {
     {
         Middleware::onlyAdmin();
 
-        $pengguna = $this->model('pengguna_model')->getLatestIdPengguna();
-
         $data = [
             'nisn' => $_POST['nisn'],
             'nis' => $_POST['nis'],
@@ -74,7 +72,6 @@ class Admin_siswa extends Controller {
             'id_kelas' => $_POST['kelas'],
             'id_spp' => $_POST['spp'],
             'id_level' => 3,
-            'id_pengguna' => ++$pengguna['id_pengguna'],
         ];
 
         if (!$this->model('pengguna_model')->addPengguna($data))
@@ -82,6 +79,11 @@ class Admin_siswa extends Controller {
             Flasher::setFlash('Gagal menambahkan data pengguna', 'danger');
             Direct::directTo('/admin-siswa');
         }
+
+        // get pengguna when data successfully stored
+        $pengguna = $this->model('pengguna_model')->getPenggunaByUsernameAndPassword($data);
+        $data['id_pengguna'] = $pengguna['id_pengguna'];
+
         if (!$this->model('siswa_model')->addSiswa($data))
         {
             Flasher::setFlash('Gagal menambahkan data siswa', 'danger');

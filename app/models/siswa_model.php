@@ -54,6 +54,15 @@ class siswa_model {
         return $this->db->single();
     }
 
+    public function getSiswaByPenggunaId($id)
+    {
+        $query = "SELECT s.*, k.*, sp.* FROM {$this->table} AS s LEFT JOIN kelas AS k ON s.id_kelas=k.id_kelas LEFT JOIN spp AS sp ON s.id_spp = sp.id_spp WHERE s.id_pengguna=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        return $this->db->single();
+    }
+
     public function updateSiswaById($data)
     {
         $query = "UPDATE {$this->table} SET nisn=:nisn, nis=:nis, nama_siswa=:nama, no_telp=:telp, alamat=:alamat, id_spp=:id_spp, id_kelas=:id_kelas WHERE id_siswa=:id_siswa";

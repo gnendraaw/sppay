@@ -5,8 +5,14 @@ class Home extends Controller {
     {
         Middleware::onlySiswa();
 
-        $this->view('templates/header');
-        $this->view('home/index');
+        $data = [
+            'title' => 'Dashboard Siswa',
+            'heading' => 'dashboard',
+            'options' => 'dashboard',
+        ];
+
+        $this->view('templates/header', $data);
+        $this->view('home/index', $data);
         $this->view('templates/footer');
     }
 }

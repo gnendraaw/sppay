@@ -40,14 +40,11 @@ class Admin_petugas extends Controller {
     {
         Middleware::onlyAdmin();
 
-        $pengguna = $this->model('pengguna_model')->getLatestIdPengguna();
-
         $data = [
             'username' => $_POST['username'],
             'nama' => $_POST['nama'],
             'id_level' => $_POST['level'],
             'password' => md5($_POST['password']),
-            'id_pengguna' => ++$pengguna['id_pengguna'],
         ];
 
         if (!$this->model('pengguna_model')->addPengguna($data) > 0)
@@ -55,6 +52,11 @@ class Admin_petugas extends Controller {
             Flasher::setFlash('Gagal menambahkan data pengguna', 'danger');
             Direct::directTo('/admin-petugas');
         }
+
+        // get pengguna when data successfully stored
+        $pengguna = $this->model('pengguna_model')->getPenggunaByUsernameAndPassword($data);
+        $data['id_pengguna'] = $pengguna['id_pengguna'];
+
         if (!$this->model('petugas_model')->addPetugas($data) > 0)
         {
             Flasher::setFlash('Gagal menambahkan data petugas', 'danger');
