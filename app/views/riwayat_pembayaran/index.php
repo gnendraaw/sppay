@@ -4,7 +4,8 @@
             <h6 class="font-weight-bold text-primary m-0">Riwayat Pembayaran</h6>
         </div>
         <div class="card-body py-3">
-            <table class="table table-bordered table-striped" id="dataTable">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" >
                 <thead>
                     <th>#</th>
                     <th>Tanggal Bayar</th>
@@ -24,6 +25,7 @@
                     <?php endforeach ?>
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 </div>
