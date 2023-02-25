@@ -68,11 +68,20 @@ class Pengguna_model {
     {
         $query = "UPDATE {$this->table} SET password=:password WHERE id_pengguna=:id";
         $this->db->query($query);
-        $this->db->bind('password', $data['password']);
+        $this->db->bind('password', $data['newPassword']);
         $this->db->bind('id', $data['id_pengguna']);
 
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function checkIfPasswordMatch($data)
+    {
+        $query = "SELECT id_pengguna FROM {$this->table} WHERE password=:password";
+        $this->db->query($query);
+        $this->db->bind('password', $data['oldPassword']);
+
+        return $this->db->single();
     }
 }

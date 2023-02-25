@@ -255,6 +255,13 @@
                 console.log('clicked')
             })
             // end of admin pembayaran manajemen
+
+            // beginning of admin profile manajemen
+            $('#adminResetPasswordModal').on('click', 'button.btn-warning', function() {
+                form = $('#adminResetPasswordForm')
+                form.submit()
+            })
+            // end of admin profile manajemen
         })
     </script>
 </body>
