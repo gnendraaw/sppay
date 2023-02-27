@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <input type="hidden" name="id" val="">
                             <label for="adminSppTahunInput">Tahun</label>
-                            <input type="text" class="form-control" name="tahun" id="adminSppTahunInput" maxlength="4" required>
+                            <input type="text" class="form-control" name="tahun" id="adminSppTahunInput" maxlength="9" required>
                         </div>
                         <div class="form-group">
                             <label for="adminSppNominalInput">Nominal</label>
