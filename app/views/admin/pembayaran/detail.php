@@ -32,70 +32,37 @@
             <div class="card mb-3">
                 <div class="card-body py-3">
                     <form action="<?=BASE_URL?>/admin-pembayaran/store" method="post" id="adminBayarSppForm">
-
-                    <h6 class="font-weight-bold text-gray-800">Semester I</h6>
-
-                    <hr>
-
-                    <div class="row">
                         <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
                         <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
                         <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
 
+                        <?php foreach($data['bulan'] as $key => $bulan): ?>
+                            <h6 class="font-weight-bold text-gray-800">Semester <?=++$key?></h6>
 
-                        <?php for($i = 0; $i < 6; $i++): ?>
-                            <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
-                                <input type="hidden" name="bulan[<?=$data['bulan'][$i]?>]" value="false" data-bulan="<?=$data['bulan'][$i]?>" id="inputBulan">
+                            <hr>
 
-                                <?php if(in_array($data['bulan'][$i], $data['bulan_terbayar'])): ?>
-                                    <card class="card p-3 bg-success text-white">
-                                        <h6 class="text-uppercase"><?=$data['bulan'][$i]?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </card>
+                            <div class="row">
+                                <?php foreach($bulan as $bln): ?>
+                                    <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
+                                        <input type="hidden" name="bulan[<?=$bln?>]" value="false" data-bulan="<?=$bln?>" id="inputBulan">
 
-                                <?php else: ?>
-                                    <button type="button" class="card p-3 btn-block">
-                                        <h6 class="text-uppercase"><?=$data['bulan'][$i]?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </button>
+                                        <?php if(in_array($bln, $data['bulan_terbayar'])): ?>
+                                            <card class="card p-3 bg-success text-white">
+                                                <h6 class="text-uppercase"><?=$bln?></h6>
+                                                <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
+                                            </card>
 
-                                <?php endif ?>
+                                        <?php else: ?>
+                                            <button type="button" class="card p-3 btn-block">
+                                                <h6 class="text-uppercase"><?=$bln?></h6>
+                                                <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
+                                            </button>
+
+                                        <?php endif ?>
+                                    </div>
+                                <?php endforeach ?>
                             </div>
-                        <?php endfor ?>
-
-                    </div>
-
-                    <h6 class="font-weight-bold text-gray-800">Semester II</h6>
-
-                    <hr>
-
-                    <div class="row">
-                        <input type="hidden" name="nominal" value="<?=$data['siswa']['nominal']?>">
-                        <input type="hidden" name="id_spp" value="<?=$data['siswa']['id_spp']?>">
-                        <input type="hidden" name="id_siswa" value="<?=$data['siswa']['id_siswa']?>">
-
-
-                        <?php for($i = 6; $i < 12; $i++): ?>
-                            <div class="col-sm-12 col-md-6 col-xl-4 mb-3 spp-card">
-                                <input type="hidden" name="bulan[<?=$data['bulan'][$i]?>]" value="false" data-bulan="<?=$data['bulan'][$i]?>" id="inputBulan">
-
-                                <?php if(in_array($data['bulan'][$i], $data['bulan_terbayar'])): ?>
-                                    <card class="card p-3 bg-success text-white">
-                                        <h6 class="text-uppercase"><?=$data['bulan'][$i]?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </card>
-
-                                <?php else: ?>
-                                    <button type="button" class="card p-3 btn-block">
-                                        <h6 class="text-uppercase"><?=$data['bulan'][$i]?></h6>
-                                        <h4 class="text-grey-800 font-weight-bold">Rp <?=$data['siswa']['nominal']?></h4>
-                                    </button>
-
-                                <?php endif ?>
-                            </div>
-                        <?php endfor ?>
-
-                    </div>
+                        <?php endforeach ?>
                 </div>
             </div>
             <button type="button" class="btn btn-success btn-block" id="adminBayarSppBtn" data-toggle="modal" data-target="#adminBayarSppModal">Bayar</button>

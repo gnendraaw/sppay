@@ -25,9 +25,16 @@ class Admin_pembayaran extends Controller {
 
         $siswa = $this->model('siswa_model')->getSiswaById($id);
         $pembayaran = $this->model('pembayaran_model')->getPembayaranBySiswaId($siswa['id_siswa']);
+
         $bulan = [
-            'juli', 'agustus', 'september', 'oktober', 'november', 'desember', 'januari', 'februari', 'maret', 'april', 'mei', 'juni',
+            [
+                'juli', 'agustus', 'september', 'oktober', 'november', 'desember',
+            ],
+            [
+                'januari', 'februari', 'maret', 'april', 'mei', 'juni',
+            ],
         ];
+
         $bulan_terbayar = [];
         foreach($pembayaran as $p) {
             array_push($bulan_terbayar, $p['bulan_bayar']);
