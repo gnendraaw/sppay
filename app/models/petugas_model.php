@@ -21,7 +21,7 @@ class Petugas_model {
 
     public function getAllPetugas()
     {
-        $query = "SELECT pet.*, pen.*, l.* FROM {$this->table} AS pet LEFT JOIN pengguna AS pen ON pet.id_pengguna=pen.id_pengguna LEFT JOIN level AS l ON pen.level=l.id_level";
+        $query = "SELECT * FROM selectPetugas";
         $this->db->query($query);
 
         return $this->db->resultSet();
@@ -43,7 +43,7 @@ class Petugas_model {
 
     public function getPetugasById($id)
     {
-        $query = "SELECT p.*, pen.id_pengguna, l.* FROM {$this->table} AS p LEFT JOIN pengguna AS pen ON p.id_pengguna=pen.id_pengguna LEFT JOIN level As l ON l.id_level=pen.level WHERE p.id_petugas=:id";
+        $query = "SELECT * FROM selectPetugas WHERE id_petugas=:id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 

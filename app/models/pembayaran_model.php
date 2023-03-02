@@ -11,7 +11,7 @@ class Pembayaran_model {
 
     public function getAllPembayaran($orderBy = 'ASC')
     {
-        $query = "SELECT p.*, s.*, sp.*, k.* FROM {$this->table} AS p LEFT JOIN siswa AS s ON p.id_siswa=s.id_siswa LEFT JOIN spp AS sp ON p.id_spp=sp.id_spp LEFT JOIN kelas AS k ON k.id_kelas=s.id_kelas ORDER BY p.id_pembayaran {$orderBy}";
+        $query = "SELECT * FROM selectAllPembayaran ORDER BY id_pembayaran {$orderBy}";
         $this->db->query($query);
 
         return $this->db->resultSet();

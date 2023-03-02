@@ -42,7 +42,7 @@ class Pengguna_model {
 
     public function deletePengguna($id)
     {
-        $query = "DELETE FROM {$this->table} WHERE id_pengguna=:id";
+        $query = "CALL deletePengguna(:id)";
         $this->db->query($query);
         $this->db->bind('id', $id);
 
