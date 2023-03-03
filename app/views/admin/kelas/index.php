@@ -45,7 +45,7 @@
     <!-- Admin SPP Modal-->
     <div class="modal fade" id="adminKelasModal" tabindex="-1" role="dialog" aria-labelledby="adminKelasModal"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="adminKelasModalLabel">Tambah Data Kelas</h5>
@@ -77,7 +77,7 @@
     <!-- Admin Delete SPP Modal-->
     <div class="modal fade" id="adminDeleteKelasModal" tabindex="-1" role="dialog" aria-labelledby="adminDeleteKelasModal"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="adminDeleteKelasModalLabel">Hapus Data Kelas</h5>

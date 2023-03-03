@@ -46,7 +46,7 @@
     <!-- Admin SPP Modal-->
     <div class="modal fade" id="adminSppModal" tabindex="-1" role="dialog" aria-labelledby="adminSppModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="adminSppModalLabel">Tambah Data SPP</h5>
@@ -78,7 +78,7 @@
     <!-- Admin Delete SPP Modal-->
     <div class="modal fade" id="adminDeleteSppModal" tabindex="-1" role="dialog" aria-labelledby="adminDeleteSppModal"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="adminDeleteSppModalLabel">Hapus Data SPP</h5>
