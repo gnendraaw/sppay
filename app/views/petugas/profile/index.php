@@ -39,7 +39,7 @@
                     <hr>
 
                     <h6 class="text-warning font-weight-bold">Reset Password</h6>
-                    <form action="<?=BASE_URL?>/admin-profile/reset" method="post" id="adminResetPasswordForm">
+                    <form action="<?=BASE_URL?>/petugas-profile/reset" method="post" id="adminResetPasswordForm">
                     <input type="hidden" name="id_pengguna" value="<?=$data['petugas']['id_pengguna']?>">
                         <div class="form-group">
                             <label for="adminOldPasswordInput">Password Lama</label>
