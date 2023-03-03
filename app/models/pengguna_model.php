@@ -78,9 +78,10 @@ class Pengguna_model {
 
     public function checkIfPasswordMatch($data)
     {
-        $query = "SELECT id_pengguna FROM {$this->table} WHERE password=:password";
+        $query = "SELECT id_pengguna FROM {$this->table} WHERE password=:password AND id_pengguna=:id";
         $this->db->query($query);
         $this->db->bind('password', $data['oldPassword']);
+        $this->db->bind('id', $data['id_pengguna']);
 
         return $this->db->single();
     }
