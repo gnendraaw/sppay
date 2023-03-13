@@ -47,7 +47,7 @@ class Admin_petugas extends Controller {
             'password' => md5($_POST['password']),
         ];
 
-        if (!$this->model('pengguna_model')->addPengguna($data) > 0)
+        if (!$this->model('pengguna_model')->addPengguna($data))
         {
             Flasher::setFlash('Gagal menambahkan data pengguna', 'danger');
             Direct::directTo('/admin-petugas');
@@ -98,12 +98,12 @@ class Admin_petugas extends Controller {
             'id_pengguna' => $_POST['id_pengguna'],
         ];
 
-        if (!$this->model('pengguna_model')->updatePengguna($data) > 0)
+        if ($this->model('pengguna_model')->updatePengguna($data) === false)
         {
             Flasher::setFlash('Gagal merubah data pengguna', 'danger');
-            exit;
+            Direct::directTo('/admin-petugas');
         }
-        if (!$this->model('petugas_model')->updatePetugas($data) > 0)
+        if ($this->model('petugas_model')->updatePetugas($data) === false)
         {
             Flasher::setFlash('Gagal merubah data petugas', 'danger');
             Direct::directTo('/admin-petugas');

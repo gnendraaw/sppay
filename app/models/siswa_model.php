@@ -57,7 +57,6 @@ class siswa_model {
     public function getSiswaByPenggunaId($id)
     {
         $query = "SELECT * FROM selectAllSiswa WHERE id_pengguna=:id";
-        // $query = "SELECT s.*, k.*, sp.* FROM {$this->table} AS s LEFT JOIN kelas AS k ON s.id_kelas=k.id_kelas LEFT JOIN spp AS sp ON s.id_spp = sp.id_spp WHERE s.id_pengguna=:id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 

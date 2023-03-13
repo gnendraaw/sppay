@@ -262,6 +262,26 @@
                 form.submit()
             })
             // end of admin profile manajemen
+
+            // beginning of admin transaksi manajemen
+            $('#adminTransaksiBayarBtn').on('click', function() {
+                form = $('#adminTransaksiForm').submit()
+            })
+
+            $('.transaksi-card-btn').on('click', function() {
+                input = $(this).siblings('input[type=hidden]')
+                val = input.val()
+                if (val == '1') {
+                    $(this).removeClass('bg-warning text-white')
+                    val = 0
+                }
+                else {
+                    $(this).addClass('bg-warning text-white')
+                    val = 1
+                }
+                input.val(val)
+            })
+            // end of admin transaksi manajemen
         })
     </script>
 </body>
